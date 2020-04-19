@@ -31,4 +31,13 @@ Using project "default".<br/>
 
 ---
 
-This is 
+### Create a new project - weblogic
+<code>$ oc new-project weblogic</code>
+Now using project "weblogic" on server "https://api.cluster-xxxx.xxxx.openshift.com:6443:6443".<br/>
+You can add applications to this project with the 'new-app' command. For example, try:
+<p/>
+    <code>oc new-app django-psql-example</code>
+<p/>
+to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes application:
+<p/>
+    <code>kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node</code>
