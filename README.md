@@ -43,19 +43,19 @@ to build a new example application in Python. Or use kubectl to deploy a simple 
     <code>kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node</code>
 
 <p/>
-Then I will use helm to install the operator. Before that, I have to grant the privilige to the user *system:serviceaccount:kube-system:default*
-<br/><code>apiVersion: authorization.openshift.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: tiller-cluster-admin
-roleRef:
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: kube-system
-userNames:
-- system:serviceaccount:kube-system:default
+Then I will use helm to install the operator. Before that, I have to grant the privilige to the user <em>system:serviceaccount:kube-system:default</em>
+<br/><code>apiVersion: authorization.openshift.io/v1 <br/>
+kind: ClusterRoleBinding <br/>
+metadata: <br/>
+  name: tiller-cluster-admin <br/>
+roleRef: <br/>
+  name: cluster-admin <br/>
+subjects: <br/>
+- kind: ServiceAccount<br/>
+  name: default<br/>
+  namespace: kube-system<br/>
+userNames:<br/>
+- system:serviceaccount:kube-system:default<br/>
 EOF</code>
 
 
