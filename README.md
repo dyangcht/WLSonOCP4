@@ -258,3 +258,49 @@ domain1-introspect-domain-job-wbxfz   1/1     Running   0          58s
 weblogic-operator-6796b6c549-ln8qz    1/1     Running   0          28m
 ```
 
+* Waiting for the all servers are started, like following
+```
+$ oc get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+domain1-admin-server                 1/1     Running   0          3m48s
+domain1-managed-server1              1/1     Running   0          117s
+domain1-managed-server2              1/1     Running   0          117s
+weblogic-operator-6796b6c549-ln8qz   1/1     Running   0          32m
+```
+
+* Expose them to a public domain
+```
+cat << EOF | oc apply -f -
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pathrouting-1
+  namespace: weblogic
+  annotations:
+    kubernetes.io/ingress.class: pathrouting
+spec:
+  rules:
+  - host: domain1-ingress-lb.apps.cluster-xxx.xxx.sandbox1878.openshift.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: domain1-cluster-cluster-1
+          servicePort: 8001
+      - path: /console
+        backend:
+          serviceName: domain1-admin-server
+          servicePort: 7001          
+EOF
+ingress.extensions/pathrouting-1 created
+```
+
+* Check status
+```
+oc get routes
+NAME                  HOST/PORT                                                          PATH       SERVICES                    PORT   TERMINATION   WILDCARD
+pathrouting-1-5b9cd   domain1-ingress-lb.apps.cluster-c8cf.c8cf.sandbox629.opentlc.com   /console   domain1-admin-server        7001                 None
+pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-c8cf.c8cf.sandbox629.opentlc.com   /          domain1-cluster-cluster-1   8001                 None
+```
+
+
