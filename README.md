@@ -1,4 +1,4 @@
-# Put Oracle WebLogic 12c on OpenShift 4.x
+# Oracle WebLogic 12c runs on OpenShift 4.x
 
 ## Prerequisites
 * git client
