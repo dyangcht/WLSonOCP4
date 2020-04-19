@@ -1,6 +1,6 @@
 # Put Oracle WebLogic 12c on OpenShift 4.x
 
-> Prerequisites
+## Prerequisites
 * git client
 * helm client
 * openshift command line - oc
@@ -23,7 +23,7 @@ git clone https://github.com/oracle/weblogic-kubernetes-operator
 $ oc login https://api.cluster-xxxx.xxxx.openshift.com:6443
 Authentication required for https://api.cluster-xxxx.xxxx.openshift.com:6443:6443 (openshift)
 Username: admin
-Password: <password>
+Password: *<password>*
 Login successful.
 
 You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'
