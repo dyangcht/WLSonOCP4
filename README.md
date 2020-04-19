@@ -43,7 +43,7 @@ to build a new example application in Python. Or use kubectl to deploy a simple 
     <code>kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node</code>
 
 <p/>
-Then I will use helm to install the operator. Before that, I have to grant the privilige to the user <em>system:serviceaccount:kube-system:default</em>
+Then I will use helm to install the operator and it will install the Tiller in the cluster. Before that, I have to grant the privilige to the user <em>system:serviceaccount:kube-system:default</em>
 
 ```
 cat << EOF | oc apply -f -
@@ -64,7 +64,7 @@ EOF
 
 **clusterrolebinding.authorization.openshift.io/tiller-cluster-admin created**
 
-### helm initialize
+### helm initialize - Install Tiller
 <code>$ helm init</code><br/>
 
 <strong>$HELM_HOME has been configured at /Users/dyangcht/.helm.
@@ -75,3 +75,31 @@ Please note: by default, Tiller is deployed with an insecure 'allow unauthentica
 To prevent this, run `helm init` with the --tiller-tls-verify flag.<br/>
 For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation<br/>
 Happy Helming!</strong><br/>
+
+### Check the status
+```
+$ oc get deployments -n kube-system
+NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+tiller-deploy   1/1     1            1           13m
+```
+
+Prepare your own YAML configuration file. Copy the original YAML file to a new one.
+```
+$ cp kubernetes/charts/weblogic-operator/values.yaml my-operator-values.yaml
+```
+
+Because I create a project called **"weblogic"**, I need to change the domainNamespaces from "default" to "weblogic" in my-perator-values.yaml.
+
+```
+$ oc adm policy add-scc-to-user anyuid -z default
+```
+**securitycontextconstraints.security.openshift.io/anyuid added to: ["system:serviceaccount:weblogic:default"]**
+
+```
+$ helm install kubernetes/charts/weblogic-operator \
+     --name weblogic-operator \
+     --namespace weblogic \
+     --values my-operator-values.yaml \
+     --wait
+```     
+
