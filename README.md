@@ -308,6 +308,9 @@ pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   / 
 
 ![console](wls-console.png)
 
+* Deploy the webapp2.war
+![webapp2](webapp-deploy.png)
+
 * After log into WebLogic Admin Console, you can deploy the sample web application and test it. The http request will be redirect to the WebLogic Cluster using the round-robin rule
 
 ```
