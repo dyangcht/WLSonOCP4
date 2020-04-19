@@ -307,3 +307,52 @@ pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   / 
 * Open your browser and use the DNS name as above + /console to check the WebLogic Administration Console
 
 ![console](wls-console.png)
+
+* After log into WebLogic Admin Console, you can deploy the sample web application and test it. The http request will be redirect to the WebLogic Cluster using the round-robin rule
+
+```
+$ curl http://domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com/webapp2/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <title>Test WebApp</title>
+  </head>
+  <body>
+      version 1.3<br/>
+
+    
+
+    <li>InetAddress: domain1-managed-server1/10.128.2.35
+    <li>InetAddress.hostname: domain1-managed-server1
+
+  </body>
+</html>
+
+$ curl http://domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com/webapp2/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <title>Test WebApp</title>
+  </head>
+  <body>
+      version 1.3<br/>
+
+    
+
+    <li>InetAddress: domain1-managed-server2/10.128.2.34
+    <li>InetAddress.hostname: domain1-managed-server2
+
+  </body>
+</html>
+```
+
