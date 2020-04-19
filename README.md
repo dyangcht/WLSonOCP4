@@ -33,7 +33,7 @@ Using project "default".<br/>
 
 ### Create a new project - weblogic
 <code>$ oc new-project weblogic</code>
-Now using project "weblogic" on server "https://api.cluster-xxxx.xxxx.openshift.com:6443:6443".<br/>
+<p/>Now using project "weblogic" on server "https://api.cluster-xxxx.xxxx.openshift.com:6443:6443".<br/>
 You can add applications to this project with the 'new-app' command. For example, try:
 <p/>
     <code>oc new-app django-psql-example</code>
@@ -41,3 +41,25 @@ You can add applications to this project with the 'new-app' command. For example
 to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes application:
 <p/>
     <code>kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node</code>
+
+<p/>
+Then I will use helm to install the operator. Before that, I have to grant the privilige to the user *system:serviceaccount:kube-system:default*
+<br/><code>apiVersion: authorization.openshift.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller-cluster-admin
+roleRef:
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: kube-system
+userNames:
+- system:serviceaccount:kube-system:default
+EOF</code>
+
+
+
+### helm initialize
+<code>$ helm init</code><br/>
+
