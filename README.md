@@ -280,7 +280,7 @@ metadata:
     kubernetes.io/ingress.class: pathrouting
 spec:
   rules:
-  - host: domain1-ingress-lb.apps.cluster-xxx.xxx.sandbox1878.openshift.com
+  - host: domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com
     http:
       paths:
       - path: /
@@ -299,8 +299,8 @@ ingress.extensions/pathrouting-1 created
 ```
 oc get routes
 NAME                  HOST/PORT                                                          PATH       SERVICES                    PORT   TERMINATION   WILDCARD
-pathrouting-1-5b9cd   domain1-ingress-lb.apps.cluster-c8cf.c8cf.sandbox629.opentlc.com   /console   domain1-admin-server        7001                 None
-pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-c8cf.c8cf.sandbox629.opentlc.com   /          domain1-cluster-cluster-1   8001                 None
+pathrouting-1-5b9cd   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   /console   domain1-admin-server        7001                 None
+pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   /          domain1-cluster-cluster-1   8001                 None
 ```
 
 
