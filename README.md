@@ -46,6 +46,7 @@ to build a new example application in Python. Or use kubectl to deploy a simple 
 Then I will use helm to install the operator. Before that, I have to grant the privilige to the user <em>system:serviceaccount:kube-system:default</em>
 
 ```
+cat << EOF | oc apply -f -
 apiVersion: authorization.openshift.io/v1 
 kind: ClusterRoleBinding
 metadata:
@@ -60,6 +61,8 @@ userNames:
 - system:serviceaccount:kube-system:default
 EOF
 ```
+
+**clusterrolebinding.authorization.openshift.io/tiller-cluster-admin created**
 
 
 ### helm initialize
