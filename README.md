@@ -243,6 +243,12 @@ $ vi domain.yaml
     annotations:
       openshift.io/scc: anyuid
 ```
+* Change the container image source from **domain-home-in-image:12.2.1.3** to your own. For me, it's the **dyangcht/wls:12.2.1.3-home**
+```
+$ vi domain.yaml
+
+  image: "dyangcht/wls:12.2.1.3-home"
+```
 
 * Create the WebLogic domain
 ```
