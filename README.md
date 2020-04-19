@@ -23,7 +23,7 @@ git clone https://github.com/oracle/weblogic-kubernetes-operator
 <p><code>$ oc login https://api.cluster-xxxx.xxxx.openshift.com:6443</code><br/>
 Authentication required for https://api.cluster-xxxx.xxxx.openshift.com:6443:6443 (openshift)<br/>
 Username: admin<br/>
-Password: **&lt;password&gt;**<br/>
+Password: <em>&lt;password&gt;</em><br/>
 Login successful.<br/>
 
 <p>You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'<br/>
