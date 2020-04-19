@@ -304,4 +304,4 @@ pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   / 
 ```
 
 
-[console]: wls-console.png
+![console](wls-console.png)
