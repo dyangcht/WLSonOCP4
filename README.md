@@ -11,6 +11,7 @@
 2. Install the operator to OpenShift 4.x via helm
 3. Prepare your WebLogic container image with domain home by yourself or download an existing one
 4. Expose your endpoint to public network
+5. Deploy the testing application
 
 
 ## Get WebLogic Kubernetes Operator from Oracle's github
@@ -160,7 +161,7 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 weblogic-operator-6796b6c549-ln8qz   1/1     Running   0          2m55s
 ```
 
-Generate a secret for Weblogic's admin
+* Generate a secret for Weblogic's admin
 ```
 $ ./kubernetes/samples/scripts/create-weblogic-domain-credentials/create-weblogic-credentials.sh \
    -u weblogic \
@@ -188,7 +189,7 @@ domain1-weblogic-credentials   Opaque   2      68s
 $ docker pull container-registry.oracle.com/middleware/weblogic:12.2.1.3
 ```
 
-After download the base image, you need to change some parameters you need.
+* After download the base image, you need to change some parameters you need. Like change the namespace to **weblogic**
 ```
 $ cd kubernetes/samples/scripts/create-weblogic-domain/domain-home-in-image
 $ cp create-domain-inputs.yaml my.yaml
