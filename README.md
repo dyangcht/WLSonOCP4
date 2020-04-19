@@ -28,5 +28,7 @@ Login successful.<br/>
 
 <p>You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'<br/>
 Using project "default".<br/>
-======
+
+---
+
 This is 
