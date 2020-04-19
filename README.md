@@ -304,4 +304,6 @@ pathrouting-1-w8wjp   domain1-ingress-lb.apps.cluster-xxx.xxx.openshift.com   / 
 ```
 
 
+* Open your browser and use the DNS name as above + /console to check the WebLogic Administration Console
+
 ![console](wls-console.png)
