@@ -64,7 +64,14 @@ EOF
 
 **clusterrolebinding.authorization.openshift.io/tiller-cluster-admin created**
 
-
 ### helm initialize
 <code>$ helm init</code><br/>
 
+**$HELM_HOME has been configured at /Users/dyangcht/.helm.**
+
+**Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.**
+
+**Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
+Happy Helming!**
