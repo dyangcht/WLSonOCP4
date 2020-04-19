@@ -21,11 +21,12 @@ git clone https://github.com/oracle/weblogic-kubernetes-operator
 ### Log into OpenShift cluster
 
 <p><code>$ oc login https://api.cluster-xxxx.xxxx.openshift.com:6443</code>
-Authentication required for https://api.cluster-xxxx.xxxx.openshift.com:6443:6443 (openshift)
-Username: admin
-Password: *<password>*
-Login successful.
+<p>Authentication required for https://api.cluster-xxxx.xxxx.openshift.com:6443:6443 (openshift)</p>
+<p>Username: admin</p>
+<p>Password: *<password>*</p>
+<p>Login successful.</p>
 
-You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'
-Using project "default".
-===
+<p>You have access to 56 projects, the list has been suppressed. You can list all projects with 'oc projects'</p>
+<p>Using project "default".</p>
+======
+This is 
